@@ -1,0 +1,116 @@
+/* ---------- Design tokens: saffron + maroon palette ---------- */
+:root {
+  --saffron: #e8891d;
+  --maroon: #7a1f2b;
+  --cream: #fff8ee;
+  --sand: #f6e9d4;
+  --ink: #2b1d1a;
+  --muted: #6b5a54;
+  --radius: 14px;
+}
+
+/* ---------- Element selectors: base styles ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--maroon); }
+h1 { font-size: 3.4rem; line-height: 1.15; }
+h2 { font-size: 2rem; margin-bottom: 1.5rem; text-align: center; }
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 10px auto 0;
+  background: var(--saffron);
+  border-radius: 2px;
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ---------- ID selector: sticky navigation bar (flexbox) ---------- */
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 8%;
+  background: rgba(255, 248, 238, 0.95);
+  border-bottom: 1px solid var(--sand);
+  backdrop-filter: blur(6px);
+}
+.logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--maroon); }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-weight: 500; color: var(--muted); padding-bottom: 4px; border-bottom: 2px solid transparent; transition: 0.2s; }
+.nav-links a:hover { color: var(--maroon); border-color: var(--saffron); }
+
+/* ---------- Hero section ---------- */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 8%;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 100%);
+}
+.eyebrow { text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; color: var(--saffron); font-weight: 600; margin-bottom: 12px; }
+.highlight { color: var(--saffron); }
+.tagline { max-width: 600px; margin: 20px 0 32px; font-size: 1.15rem; color: var(--muted); }
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-block; padding: 12px 28px; border-radius: 50px; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(122, 31, 43, 0.2); }
+.btn-primary { background: var(--maroon); color: #fff; }
+.btn-outline { border: 2px solid var(--maroon); color: var(--maroon); }
+
+/* ---------- Sections ---------- */
+.section { padding: 80px 8%; max-width: 1100px; margin: 0 auto; text-align: center; }
+.section.alt { max-width: none; background: var(--sand); }
+.section.alt > * { max-width: 1000px; margin-left: auto; margin-right: auto; }
+.lead { max-width: 720px; margin: 0 auto 20px; font-size: 1.1rem; color: var(--muted); }
+
+/* ---------- Cards (CSS grid) ---------- */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.card {
+  background: #fff;
+  padding: 28px;
+  border-radius: var(--radius);
+  text-align: left;
+  border-top: 5px solid var(--saffron);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 12px 26px rgba(122, 31, 43, 0.15); }
+.card h3 { margin: 10px 0 8px; font-size: 1.3rem; }
+.card p { color: var(--muted); font-size: 0.97rem; }
+.card.single { max-width: 480px; margin: 0 auto; }
+.tag { display: inline-block; background: var(--sand); color: var(--maroon); font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; }
+
+/* ---------- Skills (flex wrap chips) ---------- */
+.skill-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.skill-list li { background: var(--maroon); color: #fff; padding: 10px 22px; border-radius: 50px; font-weight: 500; transition: background 0.2s; }
+.skill-list li:hover { background: var(--saffron); }
+
+/* ---------- Footer ---------- */
+footer { text-align: center; padding: 28px; background: var(--maroon); color: var(--cream); font-size: 0.9rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+  h1 { font-size: 2.4rem; }
+  #navbar { flex-direction: column; gap: 10px; }
+  .nav-links { gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .section { padding: 60px 6%; }
+}
